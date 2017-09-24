@@ -18,11 +18,11 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs', {
-    serverMessage: `We are experiencing server issues. We will be right back`
-  })
-})
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs', {
+//     serverMessage: `We are experiencing server issues. We will be right back`
+//   })
+// })
 
 app.use(express.static(`${__dirname}/public`))
 
@@ -52,6 +52,10 @@ app.get('/bad', (req, res) => {
     errorMessage: `This is a bad page`
 
   })
+})
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {message: `Portfolio page here`})
 })
 
 app.listen(port, () => {
